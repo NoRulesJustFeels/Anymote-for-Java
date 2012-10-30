@@ -22,6 +22,7 @@ Remote app</a> or you can use the <a href="https://code.google.com/p/googletv-an
 <p>Anymote-for-Java is based on the Google Anymote Library code, but all Android dependencies have been replaced with pure Java logic. 
 Platform-specific logic like creating files or getting the network configuration is isolated in the Platform class.</p>
 
+<p>Run com.entertailion.java.anymote.test.Example to see the library in action.</p>
 
 <p>References:
 <ul>
