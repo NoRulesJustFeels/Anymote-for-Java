@@ -24,6 +24,15 @@ Platform-specific logic like creating files or getting the network configuration
 
 <p>Run com.entertailion.java.anymote.test.Example to see the library in action.</p>
 
+<p>Possible uses:
+<ul>
+<li>Home automation</li>
+<li>Custom user interface for desktop computers</li>
+<li>Test harness to test Google TV apps</li>
+<li>Second screen apps</li>
+</ul>
+</p>
+
 <p>References:
 <ul>
 <li><a href="https://developers.google.com/tv/remote/docs/pairing">Google TV Pairing Protocol</a></li>
