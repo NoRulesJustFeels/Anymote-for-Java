@@ -55,16 +55,9 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
     	initialize();
     }
     
-    /**
-     * Singleton
-     */
-    public static AnymoteClientService getInstance() {
-    	return getInstance(new Platform());
-    }
-    
-    public static synchronized AnymoteClientService getInstance(Platform context) {
+    public static synchronized AnymoteClientService getInstance(Platform platform) {
     	if (instance == null) {
-    		instance = new AnymoteClientService(context);
+    		instance = new AnymoteClientService(platform);
     	}
     	return instance;
     }

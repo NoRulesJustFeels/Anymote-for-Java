@@ -29,7 +29,7 @@ import com.entertailion.java.anymote.client.InputListener;
 import com.entertailion.java.anymote.client.PinListener;
 import com.entertailion.java.anymote.connection.TvDevice;
 import com.entertailion.java.anymote.util.Constants;
-import com.entertailion.java.anymote.util.Platform;
+import com.entertailion.java.anymote.util.JavaPlatform;
 import com.google.anymote.Key.Code;
 
 /**
@@ -55,7 +55,7 @@ public class Example implements ClientListener, InputListener {
 	 * Connect to the Anymote service and start the device selection
 	 */
 	public Example() {
-		anymoteClientService = AnymoteClientService.getInstance(new Platform());
+		anymoteClientService = AnymoteClientService.getInstance(new JavaPlatform());
 		anymoteClientService.attachClientListener(this);  // client service callback
 		anymoteClientService.attachInputListener(this);  // user interaction callback
 		
