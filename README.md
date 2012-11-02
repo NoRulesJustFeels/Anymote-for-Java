@@ -24,6 +24,8 @@ Platform-specific logic like creating files or getting the network configuration
 
 <p>Run com.entertailion.java.anymote.test.Example to see the library in action.</p>
 
+<p>Watch this <a href="https://www.youtube.com/watch?feature=player_embedded&v=TCl3udHb6gM">YouTube video</a> to see the library in action on a Raspberry PI.</p>
+
 <p>Possible uses:
 <ul>
 <li>Home automation</li>
