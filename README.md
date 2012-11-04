@@ -40,13 +40,6 @@ Platform-specific logic like creating files or getting the network configuration
 <li><a href="https://developers.google.com/tv/remote/docs/pairing">Google TV Pairing Protocol</a></li>
 <li><a href="https://code.google.com/p/anymote-protocol/">Anymote Protocol</a></li>
 <li><a href="https://developers.google.com/tv/remote/docs/developing">Building Second-screen Applications for Google TV</a></li>
+<li>The ultimate Google TV remote: <a href="https://play.google.com/store/apps/details?id=com.entertailion.android.remote">Able Remote</a></li>
 </ul>
 </p>
-
-<p>Try the ultimate Google TV remote: <a href="https://play.google.com/store/apps/details?id=com.entertailion.android.remote">Able Remote</a></p>
-
-
-
-
-
-
