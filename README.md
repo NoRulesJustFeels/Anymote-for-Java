@@ -43,6 +43,9 @@ Platform-specific logic like creating files or getting the network configuration
 </ul>
 </p>
 
+<p>Try the ultimate Google TV remote: <a href="https://play.google.com/store/apps/details?id=com.entertailion.android.remote">Able Remote</a></p>
+
+
 
 
 
