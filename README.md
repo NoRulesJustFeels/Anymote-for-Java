@@ -37,6 +37,16 @@ Platform-specific logic like creating files or getting the network configuration
 </ul>
 </p>
 
+<p>Anymote allows you to send Android intents to Google TV devices as a URI. The URI needs to be in the <a href="http://developer.android.com/reference/android/content/Intent.html">android.content.Intent</a> string format.
+Here is a list of intent strings to launch popular Google TV apps (note that these could be changed in the future by each app's developers):
+<ul>			
+<li>Netflix: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.google.tv.netflix/com.google.tv.netflix.NetflixActivity;end"</li> 
+<li>Chrome: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.google.tv.chrome/com.google.tv.chrome.HubActivity;end"</li> 
+<li>Google Play Music: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.google.android.music/com.android.music.activitymanagement.TopLevelActivity;end"</li> 
+<li>Twitter: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.twitter.android.tv/com.twitter.android.LoginActivity;end"</li> 
+<li>Pandora: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.pandora.android.gtv/com.pandora.android.Main;end"</li> 
+</ul></p>
+
 <p>References:
 <ul>
 <li><a href="https://developers.google.com/tv/remote/docs/pairing">Google TV Pairing Protocol</a></li>
