@@ -38,11 +38,11 @@ public class Log {
 	}
 	
 	public static void d(String tag, String message, Throwable e) {
-		Log.log(Level.INFO, tag+": "+message, e);
+		Log.log(Level.CONFIG, tag+": "+message, e);
 	}
 	
 	public static void d(String tag, String message) {
-		Log.log(Level.INFO, tag+": "+message);
+		Log.log(Level.CONFIG, tag+": "+message);
 	}
 	
 	public static void v(String tag, String message, Throwable e) {

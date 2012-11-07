@@ -92,7 +92,7 @@ public class JavaPlatform implements Platform {
 	public String getString(int id) {
 		switch (id) {
 			case NAME:
-				return "Raspberry PI";
+				return "Java";
 			case CERTIFICATE_NAME: 
 				return "java";
 			case UNIQUE_ID: 

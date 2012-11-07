@@ -14,12 +14,20 @@
  */
 package com.entertailion.java.anymote.client;
 
+import com.entertailion.java.anymote.connection.TvDevice;
+
 /**
  * All client applications should implement this listener. It provides
  * callbacks when the state of connection to the Anymote service running on
  * Google TV device changes.
  */
 public interface ClientListener {
+	/**
+     * This callback method is called when a connection is attempted to a device.
+     * 
+     * @param device The Google TV device connecting to.
+     */
+	public void attemptToConnect(TvDevice device);
     /**
      * This callback method is called when connection to Anymote service has
      * been established.

@@ -27,8 +27,6 @@ import com.entertailion.java.anymote.util.Message;
 import com.entertailion.java.anymote.util.MessageThread;
 import com.google.anymote.Key.Action;
 import com.google.anymote.Key.Code;
-import com.google.anymote.Messages.DataItem;
-import com.google.anymote.Messages.DataList;
 import com.google.anymote.Messages.FlingResult;
 import com.google.anymote.common.AnymoteFactory;
 import com.google.anymote.common.ConnectInfo;
@@ -323,18 +321,6 @@ public final class AnymoteSender implements MessageReceiver {
 
     public void onData(String type, String data) {
         Log.d(LOG_TAG, "onData: " + type + " / " + data);
-    }
-
-    public void onDataList(DataList dataList) {
-        Log.d(LOG_TAG, "onDataList: " + dataList.getType());
-        for (DataItem dataItem : dataList.getItemList()) {
-            for (String string : dataItem.getStringFieldList()) {
-                Log.d(LOG_TAG, " data item [string]: " + string);
-            }
-            for (int i : dataItem.getIntFieldList()) {
-                Log.d(LOG_TAG, " data item [int]: " + i);
-            }
-        }
     }
 
     /**

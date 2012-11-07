@@ -1,7 +1,7 @@
 Anymote-for-Java
 ================
 
-<p>The Anymote-for-Java library implements the Google TV Pairing and Anymote protocols in pure Java.</p>
+<p>The Anymote-for-Java library implements the <a href="https://developers.google.com/tv/">Google TV</a> Pairing and <a href="https://developers.google.com/tv/remote/docs/anymote">Anymote</a> protocols in pure Java.</p>
 
 <p>Google open sourced the implementations of their software to allow mobile devices to communicate with Google TV devices. 
 The Google TV Pairing Protocol is used to pair sessions between mobile devices and Google TV.
@@ -22,16 +22,18 @@ Remote app</a> or you can use the <a href="https://code.google.com/p/googletv-an
 <p>Anymote-for-Java is based on the Google Anymote Library code, but all Android dependencies have been replaced with pure Java logic. 
 Platform-specific logic like creating files or getting the network configuration is isolated in the Platform class.</p>
 
-<p>Run com.entertailion.java.anymote.test.Example to see the library in action.</p>
+<p>Run com.entertailion.java.anymote.test.Example to see the library in action with the default command-line interface.</p>
 
 <p>Watch this <a href="https://www.youtube.com/watch?feature=player_embedded&v=TCl3udHb6gM">YouTube video</a> to see the library in action on a Raspberry PI.</p>
 
+<p>The <a href="https://github.com/entertailion/Android-Anymote">Android-Anymote</a> library provides an Android user interface for the Anymote-for-Java library.</p>
+
 <p>Possible uses:
 <ul>
+<li>Second screen apps</li>
 <li>Home automation</li>
 <li>Custom user interface for desktop computers</li>
 <li>Test harness to test Google TV apps</li>
-<li>Second screen apps</li>
 </ul>
 </p>
 

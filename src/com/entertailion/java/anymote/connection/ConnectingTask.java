@@ -108,6 +108,12 @@ public class ConnectingTask extends Thread {
      * state changes.
      */
     public interface ConnectionListener {
+    	/**
+         * Attempting connection to target device.
+         * 
+         * @param device the device to which we connected.
+         */
+        void attemptToConnect(TvDevice device);
         /**
          * Connection to target device has been established.
          * 
@@ -163,6 +169,9 @@ public class ConnectingTask extends Thread {
      */
     @Override
     public void run() {
+    	if (listener != null) {
+    		listener.attemptToConnect(target);
+        }
         boolean state = connect();
         state = anymoteProxy.attemptToConnect(sslsock);
         if (isCancelled) {

@@ -18,10 +18,6 @@ package com.entertailion.java.anymote.client;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import com.entertailion.java.anymote.connection.ConnectingTask;
 import com.entertailion.java.anymote.connection.ConnectingTask.ConnectionListener;
@@ -46,7 +42,6 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
     private TvDevice target;
     private KeyStoreManager keyStoreManager;
     private AnymoteSender anymoteSender;
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
     private List<TvDevice> trackedDevices = new ArrayList<TvDevice>();
     private InputListener inputListener;
 
@@ -165,6 +160,15 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
             connectingTask = null;
         }
     }
+    
+    /**
+     * Called when attempting to connect to a device.
+     */
+    public void attemptToConnect(TvDevice device) {
+    	for (ClientListener listener : clientListeners) {
+            listener.attemptToConnect(device);
+        }
+    }
 
     /**
      * Called when connecting task successfully established connection.
@@ -220,30 +224,25 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
     public void onConnectionPairing() {
     }
     
-    public class DeviceCallable implements Callable<List<TvDevice>> {
-  	  @Override
-  	  public List<TvDevice> call() throws Exception {
-  		  return getTvDiscovery().discoverTvs();
-  	  }
-    } 
-    
     /**
      * Shows the device selection dialog.
      */
     public void selectDevice() {
-    	if (inputListener!=null) {
-	    	inputListener.onDiscoveringDevices();
-			Callable<List<TvDevice>> worker = new DeviceCallable();
-			Future<List<TvDevice>> submit = executor.submit(worker);
-	
-			try {
-				trackedDevices = submit.get();
-			} catch (Exception e) {
-				e.printStackTrace();
+    	Thread thread = new Thread(new Runnable() {
+			public void run() {
+				if (inputListener!=null) {
+			    	inputListener.onDiscoveringDevices();
+			
+					try {
+						trackedDevices = getTvDiscovery().discoverTvs();
+					} catch (Exception e) {
+						Log.e(LOG_TAG, "selectDevice failed", e);
+					}
+					inputListener.onSelectDevice(trackedDevices, AnymoteClientService.this);
+		    	}
 			}
-			executor.shutdown();
-			inputListener.onSelectDevice(trackedDevices, this);
-    	}
+		});
+    	thread.start();
     }
 
     /**

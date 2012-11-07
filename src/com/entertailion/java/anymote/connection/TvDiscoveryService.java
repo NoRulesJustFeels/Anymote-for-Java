@@ -135,7 +135,14 @@ public class TvDiscoveryService extends MessageThread {
      * @return list of TV devices
      */
     public List<TvDevice> discoverTvs() {
-        looper.start();
+//    	if (!looper.isAlive()) {
+//    		looper.start();
+//    	}
+    	startBroadcast();
+        if (getBroadcastAddress() == null) {
+            devices = null;
+            return devices;
+        }
         try {
             synchronized (broadCastSync) {
                 broadCastSync.wait();

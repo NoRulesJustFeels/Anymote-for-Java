@@ -70,6 +70,14 @@ public class Example implements ClientListener, InputListener {
 //        }
 	}
 	
+	/**
+	 * ClientListener callback when attempting a connecion to a Google TV device
+	 * @see com.entertailion.java.anymote.client.ClientListener#attemptToConnect(com.entertailion.java.anymote.connection.TvDevice)
+	 */
+	public void attemptToConnect(TvDevice device) {
+		System.out.println("Attempting to connecting to "+device.toString());
+	}
+	
 	/** 
 	 * ClientListener callback when Anymote is conneced to a Google TV device
 	 * @see com.entertailion.java.anymote.client.ClientListener#onConnected(com.entertailion.java.anymote.client.AnymoteSender)
