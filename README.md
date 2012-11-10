@@ -31,6 +31,8 @@ Look at the Example class for a list of intent strings to launch popular Google 
 
 <p>The <a href="https://github.com/entertailion/Android-Anymote">Android-Anymote</a> app provides an Android user interface for the Anymote-for-Java library.</p>
 
+<p>The <a href="https://github.com/entertailion/GTV-for-Tasker">GTV-for-Tasker</a> project provides a plugin for the <a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm">Tasker</a> app.</p>
+
 <p>Possible uses:
 <ul>
 <li>Second screen apps for TV</li>
