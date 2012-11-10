@@ -24,7 +24,7 @@ import java.net.Inet4Address;
 public interface Platform {
 	public static final int NAME = 0;
 	public static final int CERTIFICATE_NAME = 1;
-	public static final int UNIQUE_ID = 2;
+	public static final int UNIQUE_ID = 2; // needs to be unique per app so that multiple Anymote clients can run on the same device
 	public static final int NETWORK_NAME = 3;
 	public static final int MODE_PRIVATE = 0;
 

@@ -35,7 +35,7 @@ import com.entertailion.java.anymote.util.Platform;
 public class AnymoteClientService implements ConnectionListener, DeviceSelectListener {
     private static final String LOG_TAG = "AnymoteConnectionService";
     private static AnymoteClientService instance;
-    private List<ClientListener> clientListeners;
+    private ArrayList<ClientListener> clientListeners;
     private ConnectingTask connectingTask;
     private Platform platform;
     private TvDiscoveryService tvDiscovery;
@@ -81,7 +81,7 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
     public void onConnectionDisconnected() {
         this.anymoteSender = null;
         if (target != null) {
-            for (ClientListener listener : clientListeners) {
+            for (ClientListener listener : (ArrayList<ClientListener>)clientListeners.clone()) {
                 listener.onDisconnected();
             }
             target = null;
@@ -165,7 +165,7 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
      * Called when attempting to connect to a device.
      */
     public void attemptToConnect(TvDevice device) {
-    	for (ClientListener listener : clientListeners) {
+    	for (ClientListener listener : (ArrayList<ClientListener>)clientListeners.clone()) {
             listener.attemptToConnect(device);
         }
     }
@@ -177,7 +177,7 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
         target = device;
         this.anymoteSender = anymoteSender;
         // Broadcast new connection.
-        for (ClientListener listener : clientListeners) {
+        for (ClientListener listener : (ArrayList<ClientListener>)clientListeners.clone()) {
             listener.onConnected(anymoteSender);
         }
     }
@@ -205,7 +205,11 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
 
 			@Override
 			public void run() {
-				inputListener.onPinRequired(pinListener);
+				if (inputListener!=null) {
+					inputListener.onPinRequired(pinListener);
+				} else {
+					pinListener.onCancel();
+				}
 			}
     		
     	});
@@ -215,7 +219,7 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
     @Override
     public void onConnectionFailed() {
         anymoteSender = null;
-        for (ClientListener listener : clientListeners) {
+        for (ClientListener listener : (ArrayList<ClientListener>)clientListeners.clone()) {
             listener.onConnectionFailed();
         }
     }
@@ -239,7 +243,7 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
 						Log.e(LOG_TAG, "selectDevice failed", e);
 					}
 					inputListener.onSelectDevice(trackedDevices, AnymoteClientService.this);
-		    	}
+		    	} 
 			}
 		});
     	thread.start();
@@ -275,7 +279,7 @@ public class AnymoteClientService implements ConnectionListener, DeviceSelectLis
      * @param listener input listener.
      */
     public void detachInputListener(InputListener listener) {
-        inputListener = listener;
+        inputListener = null;
     }
     
 }

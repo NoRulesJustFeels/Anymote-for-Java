@@ -96,7 +96,7 @@ public class JavaPlatform implements Platform {
 			case CERTIFICATE_NAME: 
 				return "java";
 			case UNIQUE_ID: 
-				return "emulator";
+				return "emulator";  // needs to be unique per app so that multiple Anymote clients can run on the same device
 			case NETWORK_NAME: 
 				return "wired";  // (Wifi would be SSID)
 			default:

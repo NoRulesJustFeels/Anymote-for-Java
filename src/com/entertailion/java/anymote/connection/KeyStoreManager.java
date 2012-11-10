@@ -68,7 +68,7 @@ public final class KeyStoreManager {
      * Loads key store from storage, or creates new one if storage is missing
      * key store or corrupted.
      */
-    private void load() {
+    private synchronized void load() {
         KeyStore keyStore;
         try {
             keyStore = KeyStore.getInstance(KeyStore.getDefaultType());

@@ -22,30 +22,23 @@ Remote app</a> or you can use the <a href="https://code.google.com/p/googletv-an
 <p>Anymote-for-Java is based on the Google Anymote Library code, but all Android dependencies have been replaced with pure Java logic. 
 Platform-specific logic like creating files or getting the network configuration is isolated in the Platform class.</p>
 
+<p>Anymote allows you to send Android intents to Google TV devices as a URI. The URI needs to be in the <a href="http://developer.android.com/reference/android/content/Intent.html">android.content.Intent</a> string format.
+Look at the Example class for a list of intent strings to launch popular Google TV apps.</p>
+
 <p>Run com.entertailion.java.anymote.test.Example to see the library in action with the default command-line interface.</p>
 
 <p>Watch this <a href="https://www.youtube.com/watch?feature=player_embedded&v=TCl3udHb6gM">YouTube video</a> to see the library in action on a Raspberry PI.</p>
 
-<p>The <a href="https://github.com/entertailion/Android-Anymote">Android-Anymote</a> library provides an Android user interface for the Anymote-for-Java library.</p>
+<p>The <a href="https://github.com/entertailion/Android-Anymote">Android-Anymote</a> app provides an Android user interface for the Anymote-for-Java library.</p>
 
 <p>Possible uses:
 <ul>
-<li>Second screen apps</li>
+<li>Second screen apps for TV</li>
 <li>Home automation</li>
 <li>Custom user interface for desktop computers</li>
 <li>Test harness to test Google TV apps</li>
 </ul>
 </p>
-
-<p>Anymote allows you to send Android intents to Google TV devices as a URI. The URI needs to be in the <a href="http://developer.android.com/reference/android/content/Intent.html">android.content.Intent</a> string format.
-Here is a list of intent strings to launch popular Google TV apps (note that these could be changed in the future by each app's developers):
-<ul>			
-<li>Netflix: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.google.tv.netflix/com.google.tv.netflix.NetflixActivity;end"</li> 
-<li>Chrome: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.google.tv.chrome/com.google.tv.chrome.HubActivity;end"</li> 
-<li>Google Play Music: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.google.android.music/com.android.music.activitymanagement.TopLevelActivity;end"</li> 
-<li>Twitter: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.twitter.android.tv/com.twitter.android.LoginActivity;end"</li> 
-<li>Pandora: "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.pandora.android.gtv/com.pandora.android.Main;end"</li> 
-</ul></p>
 
 <p>References:
 <ul>
