@@ -173,18 +173,23 @@ public class ConnectingTask extends Thread {
     		listener.attemptToConnect(target);
         }
         boolean state = connect();
-        state = anymoteProxy.attemptToConnect(sslsock);
-        if (isCancelled) {
-            disconnect();
-        } else {
-            if (listener != null) {
-                if (state) {
-                    listener.onConnected(target, anymoteProxy);
-                } else {
-                    listener.onConnectionFailed();
-                }
-            }
-        }
+        try {
+			state = anymoteProxy.attemptToConnect(sslsock);
+			if (isCancelled) {
+			    disconnect();
+			} else {
+			    if (listener != null) {
+			        if (state) {
+			            listener.onConnected(target, anymoteProxy);
+			        } else {
+			            listener.onConnectionFailed();
+			        }
+			    }
+			}
+		} catch (Exception e) {
+			Log.e(LOG_TAG, "run", e);
+			listener.onConnectionFailed();
+		}
     }
 
     /**
