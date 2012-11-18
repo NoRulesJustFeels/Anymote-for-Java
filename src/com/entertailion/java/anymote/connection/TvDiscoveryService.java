@@ -20,6 +20,7 @@ package com.entertailion.java.anymote.connection;
 import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.entertailion.java.anymote.connection.BroadcastDiscoveryClient.BroadcastAdvertisement;
 import com.entertailion.java.anymote.connection.BroadcastDiscoveryClient.DeviceDiscoveredListener;
@@ -77,7 +78,7 @@ public class TvDiscoveryService extends MessageThread {
      */
     private TvDiscoveryService(Platform context) {
         this.context = context;
-        devices = new ArrayList<TvDevice>();
+        devices = new CopyOnWriteArrayList<TvDevice>();
     }
     
     public static synchronized TvDiscoveryService getInstance(Platform context) {
